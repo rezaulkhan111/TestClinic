@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/clImageSection">
 
         <TextView
-            android:id="@+id/ivName"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -57,10 +57,10 @@
             android:text="Female"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
         <TextView
-            android:id="@+id/ivDeliveryAddressNext"
+            android:id="@+id/tvEmailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"

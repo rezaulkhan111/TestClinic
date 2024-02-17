@@ -11,12 +11,12 @@
         android:label="home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_home_start_to_navigation_global_home"
-            app:destination="@id/navigation_global_home" />
+            android:id="@+id/action_home_to_create"
+            app:destination="@id/create" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_global_home"
+        android:id="@+id/create"
         android:name="com.example.testclinic.CreateFragment"
         android:label="Create"
         tools:layout="@layout/fragment_create" />
