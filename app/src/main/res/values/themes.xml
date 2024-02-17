@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.TestClinic" parent="Base.Theme.TestClinic" />
+
+    <style name="tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#393E46</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
 </resources>

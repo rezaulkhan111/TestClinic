@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testclinic.databinding.ListItemClinicBinding
 import com.example.testclinic.data.model.User
 
-class ClinicAdapter :
-    RecyclerView.Adapter<ClinicAdapter.ClinicVH>() {
+class UserAdapter :
+    RecyclerView.Adapter<UserAdapter.ClinicVH>() {
 
-    private var listRepositoryDet: MutableList<User> = mutableListOf()
+    private var listUser: MutableList<User> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClinicVH {
         return ClinicVH(
@@ -20,15 +20,15 @@ class ClinicAdapter :
     }
 
     override fun getItemCount(): Int {
-        return if (listRepositoryDet.size > 0) {
-            listRepositoryDet.size
+        return if (listUser.size > 0) {
+            listUser.size
         } else {
             0
         }
     }
 
-    fun setRepository(listRepository: MutableList<User>) {
-        listRepositoryDet = listRepository
+    fun setUsers(listRepository: MutableList<User>) {
+        listUser = listRepository
     }
 
     override fun onBindViewHolder(holder: ClinicVH, position: Int) {
@@ -46,7 +46,7 @@ class ClinicAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(position: Int) {
-            val repoModel = listRepositoryDet[position]
+            val repoModel = listUser[position]
 
         }
     }

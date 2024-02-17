@@ -15,13 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivProfileAvatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginStart="2dp"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -29,7 +33,7 @@
         android:id="@+id/clInfoSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/clImageSection"
         app:layout_constraintStart_toEndOf="@+id/clImageSection"
         app:layout_constraintTop_toTopOf="@+id/clImageSection">
@@ -38,6 +42,7 @@
             android:id="@+id/ivName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="2dp"
             android:text="Rrrrrr"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -48,7 +53,9 @@
             android:id="@+id/tvGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="2dp"
             android:text="Female"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivName" />
 
@@ -56,7 +63,9 @@
             android:id="@+id/ivDeliveryAddressNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="2dp"
             android:text="jdsjd@email.com"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGender" />
     </androidx.constraintlayout.widget.ConstraintLayout>

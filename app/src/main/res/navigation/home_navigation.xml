@@ -2,18 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/home_start"
-    android:id="@+id/home_navigation">
+    android:id="@+id/home_navigation"
+    app:startDestination="@+id/home_start">
 
     <fragment
         android:id="@+id/home_start"
         android:name="com.example.testclinic.HomeFragment"
         android:label="home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_start_to_navigation_global_home"
+            app:destination="@id/navigation_global_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_global_home"
-        android:name="com.example.testclinic.HomeFragment"
-        android:label="home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.testclinic.CreateFragment"
+        android:label="Create"
+        tools:layout="@layout/fragment_create" />
 </navigation>
