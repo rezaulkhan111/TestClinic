@@ -83,6 +83,8 @@ class HomeFragment : BaseFragment(), ICallBack {
             if (itlU != null) {
                 adapterUser =
                     UserAdapter(itlU.toMutableList(), this@HomeFragment)
+                adapterUser?.filter?.filter("active")
+
                 binding.rvUserList.apply {
                     layoutManager =
                         LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

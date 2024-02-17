@@ -188,6 +188,7 @@ class CreateFragment : BaseFragment() {
 
         viewModel.successUserLD.observe(viewLifecycleOwner) { itUs ->
             if (itUs != null) {
+                navController.popBackStack()
                 Toast.makeText(requireContext(), "" + Gson().toJson(itUs), Toast.LENGTH_SHORT)
                     .show()
             }

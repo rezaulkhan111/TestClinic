@@ -87,8 +87,7 @@ class UserAdapter :
                         isEnabled = true
                     }
                 }
-            }
-            if (repoModel.status == "inactive") {
+            } else {
                 binding.apply {
                     tvName.apply {
                         text = repoModel.name.toString()
