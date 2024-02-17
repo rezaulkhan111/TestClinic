@@ -1,10 +1,10 @@
-package com.example.testclinic.model
+package com.example.testclinic.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class Clinic {
+class User : GenericResponse() {
     @SerializedName("id")
-    var id: Int? = null
+    var id: Int = 0
 
     @SerializedName("name")
     var name: String? = null

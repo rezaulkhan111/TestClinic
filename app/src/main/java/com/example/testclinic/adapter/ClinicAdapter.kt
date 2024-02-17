@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testclinic.databinding.ListItemClinicBinding
-import com.example.testclinic.model.Clinic
+import com.example.testclinic.data.model.User
 
 class ClinicAdapter :
     RecyclerView.Adapter<ClinicAdapter.ClinicVH>() {
 
-    private var listRepositoryDet: MutableList<Clinic> = mutableListOf()
+    private var listRepositoryDet: MutableList<User> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClinicVH {
         return ClinicVH(
@@ -27,7 +27,7 @@ class ClinicAdapter :
         }
     }
 
-    fun setRepository(listRepository: MutableList<Clinic>) {
+    fun setRepository(listRepository: MutableList<User>) {
         listRepositoryDet = listRepository
     }
 
