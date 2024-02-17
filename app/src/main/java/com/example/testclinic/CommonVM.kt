@@ -22,7 +22,9 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
 
     var successUsersLD = MutableLiveData<List<User>>()
     var successUserLD = MutableLiveData<User>()
+    var errorBodyCommonLD = MutableLiveData<List<GenericResponse>>()
     var fieldCommonLD = MutableLiveData<GenericResponse>()
+
     var genderLD = MutableLiveData<MutableList<Gender>>()
 
     fun fetchAllUsers() {
@@ -34,7 +36,7 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
                 if (response.isSuccessful) {
                     successUsersLD.value = response.body()
                 } else {
-                    fieldCommonLD.value = getErrorBody(response.errorBody())
+                    errorBodyCommonLD.value = getErrorBody(response.errorBody())
                 }
             }
 
@@ -53,7 +55,7 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
                 if (response.isSuccessful) {
                     successUserLD.value = response.body()
                 } else {
-                    fieldCommonLD.value = getErrorBody(response.errorBody())
+                    errorBodyCommonLD.value = getErrorBody(response.errorBody())
                 }
             }
 
@@ -64,7 +66,7 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
     }
 
     fun updateUser(mUser: User) {
-        apiRepo.saveUsers(mUser).enqueue(object : Callback<User> {
+        apiRepo.updateUsers(mUser).enqueue(object : Callback<User> {
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
@@ -72,7 +74,7 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
                 if (response.isSuccessful) {
                     successUserLD.value = response.body()
                 } else {
-                    fieldCommonLD.value = getErrorBody(response.errorBody())
+                    errorBodyCommonLD.value = getErrorBody(response.errorBody())
                 }
             }
 
@@ -82,18 +84,24 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
         })
     }
 
-    fun getErrorBody(errorBody: ResponseBody?): GenericResponse {
+    fun getErrorBody(errorBody: ResponseBody?): List<GenericResponse> {
         return Gson().fromJson(
             JSONObject(errorBody!!.string()).toString(), GenericResponse::class.java
-        ) as GenericResponse
+        ) as List<GenericResponse>
     }
 
     fun getGender() {
         genderLD.postValue(mutableListOf<Gender>().apply {
             add(
                 Gender().apply {
+                    genderId = 0
+                    gender = "Gender"
+                }
+            )
+            add(
+                Gender().apply {
                     genderId = 1
-                    gender = "Male"
+                    gender = "male"
                 }
             )
             add(

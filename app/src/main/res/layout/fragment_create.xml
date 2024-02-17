@@ -52,6 +52,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clUserInfoSection"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="20dp"
@@ -61,7 +62,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilNameHeader"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@null"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmailHeader"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:boxStrokeColor="@null"
@@ -96,11 +97,10 @@
         <Spinner
             android:id="@+id/spGender"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shap_rectangle_radius_light_black"
             android:dropDownSelector="@color/black"
-            android:paddingVertical="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilEmailHeader" />
@@ -137,6 +137,7 @@
         <com.google.android.material.button.MaterialButton
             style="@style/OutlinedButton_green"
             android:layout_width="match_parent"
+            android:id="@+id/btnCreateOrUpdate"
             android:layout_height="wrap_content"
             android:text="Update"
             android:textAllCaps="false"

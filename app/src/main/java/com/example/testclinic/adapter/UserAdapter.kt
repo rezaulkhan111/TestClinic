@@ -53,20 +53,17 @@ class UserAdapter :
     }
 
     override fun onBindViewHolder(holder: ClinicVH, position: Int) {
-        try {
-            holder.onBind(position)
-            val mUser = mainListUser[position]
-            //Click for Details
-            holder.itemView.setOnClickListener {
-                localCallBack?.onClickItem(mUser)
-            }
+        holder.onBind(position)
 
-            //Click for Edit
-            holder.binding.ivEditInfo.setOnClickListener {
-                localCallBack?.onClickItem(mUser.id)
-            }
+        val mUser = mainListUser[position]
+        //Click for Details
+        holder.itemView.setOnClickListener {
+            localCallBack?.onClickDetailsItem(mUser)
+        }
 
-        } catch (_: Exception) {
+        //Click for Edit
+        holder.binding.ivEditInfo.setOnClickListener {
+            localCallBack?.onClickEditItem(mUser)
         }
     }
 
@@ -90,7 +87,8 @@ class UserAdapter :
                         isEnabled = true
                     }
                 }
-            } else {
+            }
+            if (repoModel.status == "inactive") {
                 binding.apply {
                     tvName.apply {
                         text = repoModel.name.toString()
@@ -112,9 +110,9 @@ class UserAdapter :
 
 interface ICallBack {
     //Click for Details
-    fun onClickItem(mUser: User)
+    fun onClickDetailsItem(mUser: User)
 
     //Click for Edit
-    fun onClickItem(mUserId: Int)
+    fun onClickEditItem(mUser: User)
 
 }

@@ -2,6 +2,7 @@ package com.example.testclinic
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.testclinic.adapter.ICallBack
 import com.example.testclinic.adapter.UserAdapter
 import com.example.testclinic.data.model.User
 import com.example.testclinic.databinding.FragmentHomeBinding
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,6 +64,7 @@ class HomeFragment : BaseFragment(), ICallBack {
             fabtnAddUser.setOnClickListener {
                 sharedCommonVM.mUser = User().apply {
                     id = 0
+                    viewStatus = "Create"
                 }
                 navController.navigate(R.id.action_home_to_create)
             }
@@ -88,6 +91,10 @@ class HomeFragment : BaseFragment(), ICallBack {
             }
         }
 
+        viewModel.errorBodyCommonLD.observe(viewLifecycleOwner) {
+            Log.e("HF", "subscribeObservers: " + Gson().toJson(it.toString()))
+        }
+
         viewModel.fieldCommonLD.observe(viewLifecycleOwner) { itGR ->
             Toast.makeText(
                 requireContext(),
@@ -98,14 +105,18 @@ class HomeFragment : BaseFragment(), ICallBack {
     }
 
     //Click for Details
-    override fun onClickItem(mUser: User) {
-        sharedCommonVM.mUser = mUser
+    override fun onClickDetailsItem(mUser: User) {
+        sharedCommonVM.mUser = mUser.apply {
+            viewStatus = "Details"
+        }
         navController.navigate(R.id.action_home_to_create)
     }
 
     //Click for Edit
-    override fun onClickItem(mUserId: Int) {
-        sharedCommonVM.mUserId = mUserId
+    override fun onClickEditItem(mUser: User) {
+        sharedCommonVM.mUser = mUser.apply {
+            viewStatus = "Edit"
+        }
         navController.navigate(R.id.action_home_to_create)
     }
 }

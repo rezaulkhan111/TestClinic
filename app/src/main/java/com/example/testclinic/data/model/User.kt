@@ -17,4 +17,6 @@ class User : GenericResponse() {
 
     @SerializedName("status")
     var status: String? = null
+
+    var viewStatus: String? = null
 }
