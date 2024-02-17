@@ -13,7 +13,7 @@ interface ApiService {
     fun getAllUsers(): Call<List<User>>
 
     @POST("users")
-    fun saveUsers(
+    fun createUser(
         @Query("name") mName: String,
         @Query("email") mEmail: String,
         @Query("gender") mGender: String,

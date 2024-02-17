@@ -170,7 +170,7 @@ class CreateFragment : BaseFragment() {
                 name = binding.tietName.text.toString()
                 email = binding.tietEmail.text.toString()
             }
-            viewModel.saveUser(sharedCommonVM.mUser!!)
+            viewModel.createUser(sharedCommonVM.mUser!!)
         }
     }
 

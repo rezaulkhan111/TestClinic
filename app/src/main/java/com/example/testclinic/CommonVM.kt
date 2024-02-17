@@ -46,8 +46,8 @@ class CommonVM @Inject constructor(private val apiRepo: ApiRepositoryImpl) : Vie
         })
     }
 
-    fun saveUser(mUser: User) {
-        apiRepo.saveUsers(mUser).enqueue(object : Callback<User> {
+    fun createUser(mUser: User) {
+        apiRepo.createUser(mUser).enqueue(object : Callback<User> {
             override fun onResponse(
                 call: Call<User>,
                 response: Response<User>
